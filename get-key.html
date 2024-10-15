@@ -10,16 +10,19 @@
             display: flex;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(14, 14, 30); /* Updated background color */
+            background-color: rgb(14, 14, 30);
         }
 
         .sidebar {
             width: 200px;
-            background-color: rgb(14, 14, 30); /* Main background color */
-            color: rgb(60, 60, 60); /* Text color */
+            background-color: rgb(14, 14, 30);
+            color: rgb(60, 60, 60);
             padding: 20px;
             height: 100vh;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .sidebar h2 {
@@ -31,8 +34,8 @@
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            background-color: rgb(24, 24, 40); /* Secondary button background */
-            color: rgb(60, 60, 60); /* Button text color */
+            background-color: rgb(24, 24, 40);
+            color: rgb(60, 60, 60);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -40,23 +43,31 @@
         }
 
         .sidebar button:hover {
-            background-color: #1abc9c; /* Change color on hover */
+            background-color: #1abc9c;
+        }
+
+        .logout-button {
+            background-color: red;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
         }
 
         .content {
             flex-grow: 1;
             padding: 20px;
-            background-color: rgb(60, 60, 60); /* Light background */
-            color: white; /* Main text color */
-            display: flex; /* Center the button */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: calc(100vh - 40px); /* Full height minus sidebar padding */
+            background-color: rgb(60, 60, 60);
+            color: white;
+            text-align: center;
         }
 
-        .start-button {
+        .content h1 {
+            margin-bottom: 40px;
+        }
+
+        .content button {
             padding: 10px 20px;
-            font-size: 18px;
             background-color: #1abc9c;
             color: white;
             border: none;
@@ -65,23 +76,39 @@
             transition: background-color 0.3s ease;
         }
 
-        .start-button:hover {
-            background-color: #16a085; /* Darker shade on hover */
+        .content button:hover {
+            background-color: #16a085;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+
+            .content {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <h2>Dashboard</h2>
-        <button onclick="location.href='dashboard.html'">Home</button>
-        <button onclick="location.href='settings.html'">Settings</button>
-        <button onclick="location.href='get-key.html'">Get Key</button>
+        <div>
+            <h2>Get Key</h2>
+            <button onclick="location.href='dashboard.html'">Home</button>
+            <button onclick="location.href='settings.html'">Settings</button>
+            <button onclick="location.href='get-key.html'">Get Key</button>
+        </div>
+        <button class="logout-button" onclick="location.href='index.html'">Log Out</button>
     </div>
     <div class="content">
-        <div>
-            <h1>Generate your key for Syphra Softworks</h1>
-            <button class="start-button">Start</button>
-        </div>
+        <h1>Generate your key for Syphra Softworks</h1>
+        <button>Start</button>
     </div>
 </body>
 </html>
