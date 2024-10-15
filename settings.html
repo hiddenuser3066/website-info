@@ -10,74 +10,86 @@
             display: flex;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(14, 14, 30); /* Updated background color */
+            background-color: rgb(14, 14, 30);
         }
 
         .sidebar {
-            width: 200px; /* Sidebar width */
-            background-color: rgb(14, 14, 30); /* Main background color */
-            color: rgb(60, 60, 60); /* Text color */
-            padding: 20px; /* Padding */
-            height: 100vh; /* Full height */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
-            transition: width 0.3s ease; /* Smooth transition for width */
+            width: 200px;
+            background-color: rgb(14, 14, 30);
+            color: rgb(60, 60, 60);
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .sidebar h2 {
-            text-align: center; /* Center align the heading */
-            margin: 0 0 20px; /* Bottom margin */
+            text-align: center;
+            margin: 0 0 20px;
         }
 
         .sidebar button {
-            width: 100%; /* Full width buttons */
-            padding: 10px; /* Padding for buttons */
-            margin: 10px 0; /* Spacing between buttons */
-            background-color: rgb(24, 24, 40); /* Secondary button background */
-            color: rgb(60, 60, 60); /* Button text color */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background-color 0.3s ease; /* Smooth transition */
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: rgb(24, 24, 40);
+            color: rgb(60, 60, 60);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .sidebar button:hover {
-            background-color: #1abc9c; /* Change color on hover */
+            background-color: #1abc9c;
+        }
+
+        .logout-button {
+            background-color: red;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
         }
 
         .content {
-            flex-grow: 1; /* Take remaining space */
-            padding: 20px; /* Padding */
-            background-color: rgb(60, 60, 60); /* Light background */
-            color: white; /* Main text color */
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgb(60, 60, 60);
+            color: white;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             body {
-                flex-direction: column; /* Stack sidebar and content */
+                flex-direction: column;
             }
+
             .sidebar {
-                width: 100%; /* Full width on mobile */
-                height: auto; /* Auto height */
-                box-shadow: none; /* Remove shadow effect */
+                width: 100%;
+                height: auto;
             }
+
             .content {
-                padding: 10px; /* Less padding on mobile */
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <h2>Dashboard</h2>
-        <button onclick="location.href='dashboard.html'">Home</button>
-        <button onclick="location.href='settings.html'">Settings</button>
-        <button onclick="location.href='get-key.html'">Get Key</button>
+        <div>
+            <h2>Settings</h2>
+            <button onclick="location.href='dashboard.html'">Home</button>
+            <button onclick="location.href='settings.html'">Settings</button>
+            <button onclick="location.href='get-key.html'">Get Key</button>
+        </div>
+        <button class="logout-button" onclick="location.href='index.html'">Log Out</button>
     </div>
     <div class="content">
         <h1>Settings</h1>
-        <p>Adjust your settings here.</p>
-        <!-- Add more settings options as needed -->
+        <p>Here you can adjust your preferences.</p>
     </div>
 </body>
 </html>
