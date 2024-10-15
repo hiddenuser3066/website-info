@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <style>
         body {
-            background-color: black;
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(14, 14, 30); /* Updated background color */
+            height: 100vh; /* Full height */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
         }
 
-        section {
+        .content {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items horizontally */
+            background-color: rgb(60, 60, 60); /* Light background for the form */
+            padding: 20px; /* Padding around the form */
+            border-radius: 10px; /* Rounded corners */
         }
 
         .form-group {
@@ -33,6 +39,7 @@
             background-color: transparent;
             color: #eee;
             transition: 0.15s all ease;
+            width: 100%; /* Full width input */
         }
 
         .form-group input:focus {
@@ -57,7 +64,7 @@
         .form-group input:focus + .form-label,
         .form-group input:not(:placeholder-shown) + .form-label {
             transform: translate(5px, -22px);
-            background-color: black;
+            background-color: rgb(14, 14, 30); /* Match background */
             font-size: 14px;
             color: #eee;
         }
@@ -68,74 +75,38 @@
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background-color: #eee;
-            color: black;
+            background-color: #1abc9c; /* Change to your desired button color */
+            color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 100%; /* Full width button */
         }
 
         button:hover {
-            background-color: #ddd; /* Darker shade on hover */
+            background-color: #16a085; /* Darker shade on hover */
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                width: 90%; /* Full width input on mobile */
+            }
         }
     </style>
 </head>
 <body>
-    <section>
-        <div class="form-group">
-            <input type="text" placeholder="E-mail" id="email">
-            <label class="form-label" for="email">E-mail</label>
-        </div>
-        <div class="form-group">
-            <input type="password" placeholder="Password" id="password">
-            <label class="form-label" for="password">Password</label>
-        </div>
-        <button id="login-button">Login</button>
-    </section>
-
-    <script>
-        let emailList = [];
-        let passwordList = [];
-
-        // Function to fetch emails and passwords from GitHub
-        async function fetchCredentials() {
-            try {
-                // Fetch emails and passwords from public GitHub repositories
-                const emailResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/emails.txt');
-                const passwordResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/passwords.txt');
-
-                const emails = await emailResponse.text();
-                const passwords = await passwordResponse.text();
-
-                // Split into arrays
-                emailList = emails.split('\n').map(line => line.trim()).filter(line => line);
-                passwordList = passwords.split('\n').map(line => line.trim()).filter(line => line);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                alert("An error occurred while fetching credentials.");
-            }
-        }
-
-        // Fetch credentials when the page loads
-        window.onload = fetchCredentials;
-
-        // Handle login button click
-        document.getElementById("login-button").addEventListener("click", function() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            if (!email || !password) {
-                alert("Please fill out both fields.");
-                return;
-            }
-
-            // Check if the email and password are valid
-            if (emailList.includes(email) && passwordList.includes(password)) {
-                // Redirect to the dashboard page
-                window.location.href = "dashboard.html";
-            } else {
-                alert("Invalid email or password.");
-            }
-        });
-    </script>
+    <div class="content">
+        <h1 style="color: white;">Welcome to Syphra Softworks</h1>
+        <form>
+            <div class="form-group">
+                <input type="email" placeholder="E-mail" id="email" required>
+                <label class="form-label" for="email">E-mail</label>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" id="password" required>
+                <label class="form-label" for="password">Password</label>
+            </div>
+            <button id="login-button" type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
