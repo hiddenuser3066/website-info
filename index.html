@@ -10,7 +10,7 @@
             display: flex;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(14, 14, 30); /* Updated background color */
+            background-color: rgb(14, 14, 30); /* Black background */
             height: 100vh; /* Full height */
             align-items: center; /* Center vertically */
             justify-content: center; /* Center horizontally */
@@ -20,9 +20,7 @@
             display: flex;
             flex-direction: column; /* Stack elements vertically */
             align-items: center; /* Center items horizontally */
-            background-color: rgb(60, 60, 60); /* Light background for the form */
             padding: 20px; /* Padding around the form */
-            border-radius: 10px; /* Rounded corners */
         }
 
         .form-group {
@@ -75,7 +73,7 @@
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background-color: #1abc9c; /* Change to your desired button color */
+            background-color: rgb(60, 60, 60); /* Button color */
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -83,7 +81,7 @@
         }
 
         button:hover {
-            background-color: #16a085; /* Darker shade on hover */
+            background-color: #1abc9c; /* Darker shade on hover */
         }
 
         @media (max-width: 768px) {
@@ -96,7 +94,7 @@
 <body>
     <div class="content">
         <h1 style="color: white;">Welcome to Syphra Softworks</h1>
-        <form>
+        <form id="login-form">
             <div class="form-group">
                 <input type="email" placeholder="E-mail" id="email" required>
                 <label class="form-label" for="email">E-mail</label>
@@ -108,5 +106,22 @@
             <button id="login-button" type="submit">Login</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            // Check credentials (dummy check for example)
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Dummy credential check (replace with your actual logic)
+            if (email === "user@example.com" && password === "password123") {
+                // Redirect to dashboard if correct
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
