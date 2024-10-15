@@ -14,29 +14,30 @@
         }
 
         .sidebar {
-            width: 200px;
+            width: 200px; /* Sidebar width */
             background-color: rgb(14, 14, 30); /* Main background color */
             color: rgb(60, 60, 60); /* Text color */
-            padding: 20px;
-            height: 100vh;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            padding: 20px; /* Padding */
+            height: 100vh; /* Full height */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: width 0.3s ease; /* Smooth transition for width */
         }
 
         .sidebar h2 {
-            text-align: center;
-            margin: 0 0 20px;
+            text-align: center; /* Center align the heading */
+            margin: 0 0 20px; /* Bottom margin */
         }
 
         .sidebar button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            width: 100%; /* Full width buttons */
+            padding: 10px; /* Padding for buttons */
+            margin: 10px 0; /* Spacing between buttons */
             background-color: rgb(24, 24, 40); /* Secondary button background */
             color: rgb(60, 60, 60); /* Button text color */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition */
         }
 
         .sidebar button:hover {
@@ -44,10 +45,25 @@
         }
 
         .content {
-            flex-grow: 1;
-            padding: 20px;
+            flex-grow: 1; /* Take remaining space */
+            padding: 20px; /* Padding */
             background-color: rgb(60, 60, 60); /* Light background */
             color: white; /* Main text color */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Stack sidebar and content */
+            }
+            .sidebar {
+                width: 100%; /* Full width on mobile */
+                height: auto; /* Auto height */
+                box-shadow: none; /* Remove shadow effect */
+            }
+            .content {
+                padding: 10px; /* Less padding on mobile */
+            }
         }
     </style>
 </head>
