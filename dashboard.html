@@ -21,6 +21,7 @@
             padding: 20px; /* Padding around the sidebar */
             height: 100vh; /* Full height */
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            transition: width 0.3s ease; /* Smooth transition for width */
         }
 
         .sidebar h2 {
@@ -50,6 +51,21 @@
             padding: 20px; /* Padding around the content */
             background-color: rgb(60, 60, 60); /* Light background */
             color: white; /* Main text color */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* Stack sidebar and content */
+            }
+            .sidebar {
+                width: 100%; /* Full width on mobile */
+                height: auto; /* Auto height */
+                box-shadow: none; /* Remove shadow effect */
+            }
+            .content {
+                padding: 10px; /* Less padding on mobile */
+            }
         }
     </style>
 </head>
