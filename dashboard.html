@@ -6,65 +6,81 @@
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <style>
-        body {
-            display: flex;
+        /* Ensure full height for the page */
+        html, body {
+            height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: rgb(14, 14, 30); /* Updated background color */
+            background-color: rgb(14, 14, 30);
         }
 
-        /* Left-side panel styles */
+        body {
+            display: flex;
+            flex-direction: row; /* Default layout for PC (sidebar on the left) */
+        }
+
+        /* Sidebar (left panel) styles for desktop */
         .sidebar {
-            width: 200px; /* Adjust the width as needed */
-            background-color: rgb(14, 14, 30); /* Main background color */
-            color: rgb(60, 60, 60); /* Text color */
-            padding: 20px; /* Padding around the sidebar */
-            height: 100vh; /* Full height */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
-            transition: width 0.3s ease; /* Smooth transition for width */
+            width: 200px;
+            background-color: rgb(14, 14, 30);
+            color: rgb(60, 60, 60);
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .sidebar h2 {
-            text-align: center; /* Center align the heading */
-            margin: 0 0 20px; /* Bottom margin */
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
         .sidebar button {
-            width: 100%; /* Full width buttons */
-            padding: 10px; /* Padding for buttons */
-            margin: 10px 0; /* Spacing between buttons */
-            background-color: rgb(24, 24, 40); /* Secondary button background */
-            color: rgb(60, 60, 60); /* Button text color */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background-color 0.3s ease; /* Smooth transition */
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: rgb(24, 24, 40);
+            color: rgb(60, 60, 60);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .sidebar button:hover {
-            background-color: #1abc9c; /* Change color on hover */
+            background-color: #1abc9c;
         }
 
-        /* Main content area styles */
+        /* Main content area */
         .content {
-            flex-grow: 1; /* Take remaining space */
-            padding: 20px; /* Padding around the content */
-            background-color: rgb(60, 60, 60); /* Light background */
-            color: white; /* Main text color */
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgb(60, 60, 60);
+            color: white;
         }
 
-        /* Responsive Styles */
+        /* Mobile styles */
         @media (max-width: 768px) {
             body {
-                flex-direction: column; /* Stack sidebar and content */
+                flex-direction: column; /* Stack sidebar on top for mobile */
             }
+
             .sidebar {
-                width: 100%; /* Full width on mobile */
-                height: auto; /* Auto height */
+                width: 100%;
+                height: auto; /* Auto height for mobile */
                 box-shadow: none; /* Remove shadow effect */
             }
-            .content {
-                padding: 10px; /* Less padding on mobile */
+
+            .sidebar button {
+                display: inline-block;
+                width: auto;
+                margin: 0 10px; /* Horizontal spacing for buttons */
+                padding: 10px;
+            }
+
+            .sidebar h2 {
+                font-size: 18px; /* Smaller font size for mobile */
             }
         }
     </style>
