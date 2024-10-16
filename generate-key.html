@@ -35,28 +35,26 @@
 
     <script>
         document.getElementById('start-button').addEventListener('click', function () {
-            const email = prompt('Enter your email:');
-            
-            if (email) {
-                fetch('/generate-key', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        document.getElementById('result').textContent = data.error;
-                    } else {
-                        document.getElementById('result').textContent = `Your key: ${data.key} (Expires at: ${data.expiresAt})`;
+            fetch('/generate-key', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('result').textContent = data.error;
+                    if (data.error === "Unauthorized") {
+                        window.location.href = '/'; // Redirect to login if not authorized
                     }
-                })
-                .catch(error => {
-                    document.getElementById('result').textContent = 'Error generating key. Please try again.';
-                });
-            }
+                } else {
+                    document.getElementById('result').textContent = `Your key: ${data.key} (Expires at: ${data.expiresAt})`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').textContent = 'Error generating key. Please try again.';
+            });
         });
     </script>
 </body>
