@@ -13,22 +13,21 @@
             background-color: rgb(14, 14, 30);
         }
 
-        /* Sidebar styles */
+        /* Left-side panel styles */
         .sidebar {
             width: 200px;
             background-color: rgb(14, 14, 30);
-            color: rgb(60, 60, 60);
+            color: white; /* Text color updated to white */
             padding: 20px;
             height: 100vh;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: width 0.3s ease;
         }
 
         .sidebar h2 {
             text-align: center;
             margin: 0 0 20px;
+            color: white; /* Heading color updated to white */
         }
 
         .sidebar button {
@@ -36,7 +35,7 @@
             padding: 10px;
             margin: 10px 0;
             background-color: rgb(24, 24, 40);
-            color: rgb(60, 60, 60);
+            color: white; /* Button text color updated to white */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -47,34 +46,22 @@
             background-color: #1abc9c;
         }
 
-        /* Red Logout button */
-        .logout-button {
-            background-color: red;
-        }
-
-        .logout-button:hover {
-            background-color: darkred;
-        }
-
-        /* Main content area */
         .content {
             flex-grow: 1;
             padding: 20px;
             background-color: rgb(60, 60, 60);
-            color: white;
+            color: white; /* Content text color updated to white */
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
             }
-
             .sidebar {
                 width: 100%;
                 height: auto;
+                box-shadow: none;
             }
-
             .content {
                 padding: 10px;
             }
@@ -83,13 +70,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <div>
-            <h2>Dashboard</h2>
-            <button onclick="location.href='dashboard.html'">Home</button>
-            <button onclick="location.href='settings.html'">Settings</button>
-            <button onclick="location.href='get-key.html'">Get Key</button>
-        </div>
-        <button class="logout-button" onclick="location.href='index.html'">Log Out</button>
+        <h2>Dashboard</h2>
+        <button onclick="location.href='dashboard.html'">Home</button>
+        <button onclick="location.href='settings.html'">Settings</button>
+        <button onclick="location.href='get-key.html'">Get Key</button>
+        <button onclick="location.href='logout.html'" style="background-color: red;">Logout</button>
     </div>
     <div class="content">
         <h1>Welcome to the Dashboard</h1>
