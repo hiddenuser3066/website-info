@@ -74,11 +74,18 @@
         <button onclick="location.href='dashboard.html'">Home</button>
         <button onclick="location.href='settings.html'">Settings</button>
         <button onclick="location.href='get-key.html'">Get Key</button>
-        <button onclick="location.href='logout.html'" style="background-color: red;">Logout</button>
+        <button onclick="location.href='index.html'" style="background-color: red;">Logout</button> <!-- Changed logout button to return to index.html -->
     </div>
     <div class="content">
         <h1>Generate your key for Syphra Softworks</h1>
-        <button id="generate-key">Start</button>
+        <button id="generate-key" onclick="generateKey()">Generate Key</button> <!-- Reverted back to Generate Key -->
     </div>
+
+    <script>
+        function generateKey() {
+            // Your key generation logic here
+            alert("Key generation logic goes here."); // Placeholder for the actual logic
+        }
+    </script>
 </body>
 </html>
