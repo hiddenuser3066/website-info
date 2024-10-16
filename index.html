@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - Syphra Softworks</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <style>
         body {
-            display: flex;
-            margin: 0;
+            background-color: rgb(14, 14, 30); /* Dark background */
+            color: white; /* Light text color */
             font-family: Arial, sans-serif;
-            background-color: rgb(14, 14, 30); /* Black background */
-            height: 100vh; /* Full height */
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-        .content {
+        section {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center items horizontally */
-            padding: 20px; /* Padding around the form */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .form-group {
             position: relative;
             margin: 12px 0;
-            width: 300px; /* Adjust width as needed */
+            width: 300px;
         }
 
         .form-group input {
@@ -37,7 +40,6 @@
             background-color: transparent;
             color: #eee;
             transition: 0.15s all ease;
-            width: 100%; /* Full width input */
         }
 
         .form-group input:focus {
@@ -45,7 +47,7 @@
         }
 
         .form-group input::placeholder {
-            color: transparent; /* Hides placeholder */
+            color: transparent;
         }
 
         .form-group .form-label {
@@ -62,115 +64,60 @@
         .form-group input:focus + .form-label,
         .form-group input:not(:placeholder-shown) + .form-label {
             transform: translate(5px, -22px);
-            background-color: rgb(14, 14, 30); /* Match background */
+            background-color: rgb(14, 14, 30);
             font-size: 14px;
             color: #eee;
         }
 
         button {
-            margin-top: 12px; /* Space between email input and button */
+            margin-top: 12px;
             padding: 6px 12px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background-color: rgb(60, 60, 60); /* Button color */
-            color: white;
+            background-color: #eee;
+            color: black;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            width: 100%; /* Full width button */
+            width: 100%;
         }
 
         button:hover {
-            background-color: #1abc9c; /* Darker shade on hover */
+            background-color: #ddd;
         }
 
-        /* Remember Me styles */
-        .remember-me {
-            display: flex; /* Align checkbox and label */
-            align-items: center; /* Center vertically */
-            margin: 10px 0; /* Margin for spacing */
+        .signup-link {
+            margin-top: 10px;
+            text-align: center;
+            color: #1abc9c;
+            cursor: pointer;
+            text-decoration: none;
         }
 
-        .remember-me input {
-            margin-right: 8px; /* Space between checkbox and label */
-        }
-
-        @media (max-width: 768px) {
-            .form-group {
-                width: 90%; /* Full width input on mobile */
-            }
+        .signup-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1 style="color: white;">Welcome to Syphra Softworks</h1>
-        <form id="login-form">
-            <div class="form-group">
-                <input type="email" placeholder="E-mail" id="email" required>
-                <label class="form-label" for="email">E-mail</label>
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Password" id="password" required>
-                <label class="form-label" for="password">Password</label>
-            </div>
-            <div class="remember-me">
-                <input type="checkbox" id="remember" />
-                <label for="remember" style="color: white;">Remember Me</label>
-            </div>
-            <button id="login-button" type="submit">Login</button>
-        </form>
-    </div>
+    <section>
+        <h1>Syphra Softworks</h1>
+        <div class="form-group">
+            <input type="email" placeholder="E-mail" id="email">
+            <label class="form-label" for="email">E-mail</label>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" id="password">
+            <label class="form-label" for="password">Password</label>
+        </div>
+        <button id="login-button">Login</button>
+        <a href="signup.html" class="signup-link">Don't have an account? Sign up here</a>
+    </section>
 
     <script>
-        // Load saved credentials if available
-        window.onload = function() {
-            const savedEmail = localStorage.getItem('email');
-            const savedPassword = localStorage.getItem('password');
-            if (savedEmail) document.getElementById('email').value = savedEmail;
-            if (savedPassword) document.getElementById('password').value = savedPassword;
-        };
-
-        document.getElementById("login-form").addEventListener("submit", async function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const remember = document.getElementById("remember").checked;
-
-            try {
-                // Fetch the emails and passwords from GitHub
-                const emailsResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/emails.txt');
-                const passwordsResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/passwords.txt');
-
-                // Convert responses to text
-                const emailsText = await emailsResponse.text();
-                const passwordsText = await passwordsResponse.text();
-
-                // Convert text to arrays
-                const emails = emailsText.split('\n').map(line => line.trim());
-                const passwords = passwordsText.split('\n').map(line => line.trim());
-
-                // Check if the email and password are in the respective lists
-                if (emails.includes(email) && passwords.includes(password)) {
-                    // Save credentials to localStorage if Remember Me is checked
-                    if (remember) {
-                        localStorage.setItem('email', email);
-                        localStorage.setItem('password', password);
-                    } else {
-                        // Clear saved credentials if not checked
-                        localStorage.removeItem('email');
-                        localStorage.removeItem('password');
-                    }
-
-                    // Redirect to dashboard if credentials are correct
-                    window.location.href = "dashboard.html";
-                } else {
-                    alert("Invalid credentials. Please try again.");
-                }
-            } catch (error) {
-                console.error("Error fetching data: ", error);
-                alert("There was an error checking your credentials. Please try again later.");
-            }
+        document.getElementById("login-button").addEventListener("click", function() {
+            // Implement your login logic here and redirect to the dashboard if successful
+            window.location.href = "dashboard.html";
         });
     </script>
 </body>
