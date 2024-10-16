@@ -13,11 +13,19 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: white;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
         }
 
         .form-group {
-            margin: 12px 0;
-            width: 300px;
+            margin: 5px 0;
+            width: 100%;
             display: flex;
             flex-direction: column;
         }
@@ -25,26 +33,36 @@
         .form-group input {
             padding: 8px 10px;
             font-size: 18px;
-            border-radius: 5px;
-            border: #acacac solid 2px;
+            border-radius: 9px;
+            border: #acacac solid 3px;
             background-color: transparent;
             color: #eee;
         }
 
         button {
-            padding: 6px 12px;
-            font-size: 16px;
+            padding: 5px 20px;
+            font-size: 20px;
             border: none;
             border-radius: 5px;
-            background-color: #eee;
+            background-color: rgb(36, 36, 77);
             color: black;
             cursor: pointer;
-            margin-top: 12px;
+            margin-top: 5px;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
             background-color: #ddd;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        a {
+            color: #eee;
+            text-decoration: none;
         }
     </style>
 </head>
