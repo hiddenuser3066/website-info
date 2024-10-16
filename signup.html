@@ -7,25 +7,19 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <style>
         body {
+            background-color: rgb(14, 14, 30);
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
-            background-color: rgb(14, 14, 30); /* Background color */
             margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            color: white; /* Title color */
-            margin-bottom: 20px; /* Space below the title */
         }
 
         .form-group {
-            position: relative;
             margin: 12px 0;
-            width: 300px; /* Set a width for the container */
+            width: 300px;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group input {
@@ -35,70 +29,50 @@
             border: #acacac solid 2px;
             background-color: transparent;
             color: #eee;
-            transition: 0.15s all ease;
-            width: 100%; /* Full width input */
-        }
-
-        .form-group input:focus {
-            border-color: #eee;
-        }
-
-        .form-group input::placeholder {
-            color: transparent; /* Hides placeholder */
-        }
-
-        .form-group .form-label {
-            position: absolute;
-            top: 9px;
-            left: 10px;
-            font-size: 18px;
-            padding: 0 10px;
-            color: #acacac;
-            pointer-events: none;
-            transition: 0.15s all ease;
-        }
-
-        .form-group input:focus + .form-label,
-        .form-group input:not(:placeholder-shown) + .form-label {
-            transform: translate(5px, -22px);
-            background-color: rgb(14, 14, 30);
-            font-size: 14px;
-            color: #eee;
         }
 
         button {
-            margin-top: 12px; /* Space between email input and button */
-            padding: 10px 20px;
+            padding: 6px 12px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
-            background-color: rgb(24, 24, 40);
-            color: #eee;
+            background-color: #eee;
+            color: black;
             cursor: pointer;
+            margin-top: 12px;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #1abc9c; /* Darker shade on hover */
+            background-color: #ddd;
         }
     </style>
 </head>
 <body>
-    <h1>Sign Up</h1>
-    <div class="form-group">
-        <input type="email" id="email" placeholder="E-mail" required>
-        <label class="form-label" for="email">E-mail</label>
+    <div class="signup-form">
+        <h1 style="color: white; text-align: center;">Sign Up for Syphra Softworks</h1>
+        <div class="form-group">
+            <input type="email" placeholder="E-mail" id="email">
+            <label class="form-label" for="email">E-mail</label>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" id="password">
+            <label class="form-label" for="password">Password</label>
+        </div>
+        <button id="signup-button">Sign Up</button>
+        <p style="color: white; text-align: center;">Already have an account? <a href="index">Login</a></p>
     </div>
-    <div class="form-group">
-        <input type="password" id="password" placeholder="Password" required>
-        <label class="form-label" for="password">Password</label>
-    </div>
-    <button id="signup-button">Sign Up</button>
-    <p style="color: white; margin-top: 20px;">Already have an account? <a href="index.html" style="color: #1abc9c;">Log in</a></p>
 
     <script>
         document.getElementById("signup-button").addEventListener("click", function() {
-            alert("Sign up functionality is not yet implemented.");
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Add code here to save the user's email and password
+
+            // Simulate signup success
+            alert("Account created successfully! You can now log in.");
+            window.location.href = "index"; // Redirect to login without .html
         });
     </script>
 </body>
