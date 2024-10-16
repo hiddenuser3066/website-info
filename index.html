@@ -13,19 +13,19 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: white; /* Default text color */
+            color: white;
         }
 
         .login-form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 300px; /* Fixed width for the form */
+            width: 300px;
         }
 
         .form-group {
-            margin: 12px 0;
-            width: 100%; /* Full width */
+            margin: 5px 0;
+            width: 100%;
             display: flex;
             flex-direction: column;
         }
@@ -33,21 +33,21 @@
         .form-group input {
             padding: 8px 10px;
             font-size: 18px;
-            border-radius: 5px;
-            border: #acacac solid 2px;
+            border-radius: 9px;
+            border: #acacac solid 3px;
             background-color: transparent;
             color: #eee;
         }
 
         button {
-            padding: 6px 12px;
-            font-size: 16px;
+            padding: 5px 20px;
+            font-size: 20px;
             border: none;
             border-radius: 5px;
-            background-color: #eee;
+            background-color: rgb(36, 36, 77);
             color: black;
             cursor: pointer;
-            margin-top: 12px;
+            margin-top: 5px;
             transition: background-color 0.3s ease;
         }
 
@@ -61,36 +61,47 @@
         }
 
         a {
-            color: #eee; /* Link color */
-            text-decoration: none; /* Remove underline */
+            color: #eee;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="login-form">
-        <h1>Login to Syphra Softworks</h1>
+        <h1>Syphra Softworks Login Page</h1>
         <div class="form-group">
             <input type="email" placeholder="E-mail" id="email">
-            <label class="form-label" for="email">E-mail</label>
         </div>
         <div class="form-group">
             <input type="password" placeholder="Password" id="password">
-            <label class="form-label" for="password">Password</label>
         </div>
         <button id="login-button">Login</button>
         <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
 
     <script>
-        document.getElementById("login-button").addEventListener("click", function() {
+        async function fetchCredentials() {
+            const emailResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/emails.txt');
+            const passwordResponse = await fetch('https://raw.githubusercontent.com/hiddenuser3066/website-info/main/passwords.txt');
+
+            const emails = await emailResponse.text();
+            const passwords = await passwordResponse.text();
+
+            return {
+                emails: emails.split('\n').map(email => email.trim()),
+                passwords: passwords.split('\n').map(password => password.trim())
+            };
+        }
+
+        document.getElementById("login-button").addEventListener("click", async function() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            // Dummy check for demonstration
-            if (email === "dumpismax@gmail.com" && password === "g3kqc7pr") {
-                // Simulate login
+            const { emails, passwords } = await fetchCredentials();
+
+            if (emails.includes(email) && passwords.includes(password)) {
                 localStorage.setItem('loggedIn', 'true');
-                window.location.href = "dashboard.html"; // Redirect to dashboard without .html
+                window.location.href = "dashboard.html"; 
             } else {
                 alert("Invalid email or password.");
             }
