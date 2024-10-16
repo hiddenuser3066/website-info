@@ -12,7 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Full viewport height */
             margin: 0;
         }
 
@@ -22,17 +22,19 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 100%;
+            max-width: 400px; /* Limit max-width to make form narrower on large screens */
+            padding: 20px;
         }
 
         h1 {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .form-group {
             position: relative;
             margin: 12px 0;
-            width: 300px;
+            width: 100%;
         }
 
         .form-group input {
@@ -77,47 +79,60 @@
             background-color: #eee;
             color: black;
             cursor: pointer;
-            transition: background-color 0.3s ease;
             width: 100%;
+            max-width: 200px; /* Ensure button is not too wide */
         }
 
         button:hover {
-            background-color: #ddd;
+            background-color: #ccc;
         }
 
+        /* Centering the "Sign up" link */
         .signup-link {
             margin-top: 20px;
             text-align: center;
-            color: #1abc9c;
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .signup-link:hover {
+        .signup-link a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
 <body>
     <section>
         <h1>Syphra Softworks</h1>
+
         <div class="form-group">
-            <input type="email" id="email" placeholder=" ">
+            <input type="text" id="email" required placeholder=" ">
             <label class="form-label" for="email">E-mail</label>
         </div>
+
         <div class="form-group">
-            <input type="password" id="password" placeholder=" ">
+            <input type="password" id="password" required placeholder=" ">
             <label class="form-label" for="password">Password</label>
         </div>
-        <button id="login-button">Login</button>
-        <a href="signup.html" class="signup-link">Don't have an account? Sign up here</a>
+
+        <button type="button" onclick="login()">Login</button>
+
+        <!-- Link to sign up page -->
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </div>
     </section>
 
     <script>
-        document.getElementById("login-button").addEventListener("click", function() {
-            // Implement login logic here, and redirect to dashboard if successful
+        // Example login function to redirect upon success
+        function login() {
+            // Perform the login check here (checking email, password)
+            // Redirect to the dashboard if login is successful
             window.location.href = "dashboard.html";
-        });
+        }
     </script>
 </body>
 </html>
