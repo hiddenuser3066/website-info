@@ -72,14 +72,14 @@
     <script>
         // Check if user is logged in
         if (!localStorage.getItem('loggedIn')) {
-            window.location.href = "index"; // Redirect to login if not logged in
+            window.location.href = "index.html"; // Redirect to login if not logged in
         }
     </script>
 
     <div class="sidebar">
         <h2>Get Key</h2>
-        <button onclick="location.href='dashboard'">Home</button>
-        <button onclick="location.href='settings'">Settings</button>
+        <button onclick="location.href='dashboard.html'">Home</button>
+        <button onclick="location.href='settings.html'">Settings</button>
         <button onclick="getKey()">Generate Key</button>
         <button onclick="logout()" style="background-color: red;">Logout</button>
     </div>
@@ -103,7 +103,7 @@
 
         function logout() {
             localStorage.removeItem('loggedIn'); // Clear login status
-            window.location.href = "index"; // Redirect to login
+            window.location.href = "index.html"; // Redirect to login
         }
     </script>
 </body>
