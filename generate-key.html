@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Key</title>
+    <style>
+        body {
+            background-color: rgb(14, 14, 30);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate your key for Syphra Softworks</h1>
+    <button id="start-button">Start</button>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function () {
+            const email = prompt('Enter your email:');
+            
+            if (email) {
+                fetch('/generate-key', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('result').textContent = data.error;
+                    } else {
+                        document.getElementById('result').textContent = `Your key: ${data.key} (Expires at: ${data.expiresAt})`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('result').textContent = 'Error generating key. Please try again.';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
