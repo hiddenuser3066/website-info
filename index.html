@@ -4,93 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Syphra Softworks</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
     <style>
         body {
-            background-color: rgb(14, 14, 30);
+            background-color: rgb(14, 14, 30); /* Black background */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* No margin */
+            font-family: Arial, sans-serif; /* Font style */
         }
-
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .login-container {
+            text-align: center; /* Center align text */
         }
-
-        h1 {
-            color: rgb(60, 60, 60);
-            margin-bottom: 20px;
+        input[type="email"],
+        input[type="password"] {
+            width: 100%; /* Full width */
+            max-width: 300px; /* Max width */
+            padding: 10px; /* Padding */
+            margin: 10px 0; /* Spacing */
+            border: 2px solid rgb(60, 60, 60); /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            background-color: transparent; /* Transparent background */
+            color: #fff; /* Text color */
         }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        input {
-            width: 300px;
-            padding: 10px;
-            font-size: 18px;
-            border-radius: 5px;
-            border: 2px solid rgb(60, 60, 60);
-            background-color: rgb(24, 24, 40);
-            color: white;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: white;
-        }
-
         button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: rgb(60, 60, 60);
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            width: 100%;
+            width: 100%; /* Full width */
+            max-width: 300px; /* Max width */
+            padding: 10px; /* Padding */
+            margin: 10px 0; /* Spacing */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: rgb(24, 24, 40); /* Button color */
+            color: rgb(60, 60, 60); /* Text color */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s ease; /* Transition effect */
         }
-
         button:hover {
-            background-color: rgb(80, 80, 80);
+            background-color: rgb(30, 30, 50); /* Darker on hover */
         }
-
-        .signup-link {
-            color: #00ff00;
-            text-decoration: none;
-        }
-
-        .signup-link:hover {
-            text-decoration: underline;
+        a {
+            color: #00FF00; /* Link color */
         }
     </style>
 </head>
 <body>
-    <section>
+    <div class="login-container">
         <h1>Syphra Softworks</h1>
-        <div class="form-group">
-            <input type="email" id="email" placeholder="E-mail">
-        </div>
-        <div class="form-group">
-            <input type="password" id="password" placeholder="Password">
-        </div>
+        <input type="email" id="email" placeholder="E-mail">
+        <input type="password" id="password" placeholder="Password">
         <button id="login-button">Login</button>
-        <a class="signup-link" href="signup.html">Don't have an account? Sign up here</a>
-    </section>
+        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+    </div>
 
     <script>
-        document.getElementById('login-button').addEventListener('click', async function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        document.getElementById("login-button").addEventListener("click", async function() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-            const response = await fetch('/login', {
+            const response = await fetch('http://your-node-server-url/login', { // Replace with your actual Node server URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -98,12 +71,10 @@
                 body: JSON.stringify({ email, password })
             });
 
-            const result = await response.json();
-
-            if (result.success) {
-                window.location.href = 'dashboard.html'; // Redirect to dashboard if login is successful
+            if (response.ok) {
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
             } else {
-                alert('Login failed: ' + result.message);
+                alert('Invalid login credentials');
             }
         });
     </script>
