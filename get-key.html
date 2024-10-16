@@ -37,62 +37,18 @@
         .content {
             flex-grow: 1;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
         }
 
         .content h1 {
             margin-bottom: 20px;
         }
 
-        /* Settings section */
-        .setting-group {
-            margin-bottom: 20px;
-        }
-
-        /* Switch */
-        .switch {
-            display: flex;
-            align-items: center;
-        }
-
-        .switch input {
-            margin-right: 10px;
-        }
-
-        .switch input[type="checkbox"] {
-            appearance: none;
-            width: 40px;
-            height: 20px;
-            background-color: rgb(60, 60, 60);
-            border-radius: 20px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .switch input[type="checkbox"]:checked {
-            background-color: #1abc9c;
-        }
-
-        .switch input[type="checkbox"]::before {
-            content: '';
-            width: 16px;
-            height: 16px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: left 0.3s;
-        }
-
-        .switch input[type="checkbox"]:checked::before {
-            left: 22px;
-        }
-
         /* Buttons */
         .button-group button {
             padding: 10px 20px;
-            margin-right: 10px;
             background-color: rgb(24, 24, 40);
             border: none;
             color: white;
@@ -116,13 +72,15 @@
     </div>
     <div class="content">
         <h1>Generate your key for Syphra Softworks</h1>
-        <button>Start</button>
-        <script>
-    document.getElementById("start-button").addEventListener("click", function() {
-        window.location.href = "generate-key.html"; // Redirect to generate-key.html
-    });
-</script>
-
+        <div class="button-group">
+            <button id="start-button">Start</button>
+        </div>
     </div>
+
+    <script>
+        document.getElementById("start-button").addEventListener("click", function() {
+            window.location.href = "generate-key.html"; // Redirect to generate-key.html
+        });
+    </script>
 </body>
 </html>
