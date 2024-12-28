@@ -16,20 +16,53 @@
             line-height: 1.6;
             position: relative;
             overflow-y: scroll;
-            padding: 20px; /* Added padding */
+            padding-top: 60px; /* Add space for top panel */
         }
 
+        /* Top Panel */
+        .top-panel {
+            width: 100%;
+            background-color: rgb(40, 40, 60);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            font-size: 18px;
+        }
+
+        .top-panel a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .top-panel a:hover {
+            color: rgb(200, 200, 255);
+        }
+
+        /* Main Title */
         h1 {
             color: rgb(255, 255, 255);
-            text-align: left; /* Changed to left-aligned */
-            margin-top: 50px; /* Reduced the margin */
-            font-size: 48px;
+            text-align: left;
+            margin-top: 100px;
+            font-size: 48px; /* Make this title big */
         }
 
+        /* Smaller Titles */
+        h2 {
+            font-size: 32px; /* Smaller than h1 */
+            color: rgb(255, 255, 255);
+            margin-top: 40px;
+        }
+
+        /* Paragraph Styles */
         p {
             margin: 10px 0;
             max-width: 800px;
-            text-align: left; /* Changed to left-aligned */
+            text-align: left;
             font-size: 18px;
         }
 
@@ -75,12 +108,12 @@
             border-radius: 10px;
         }
 
-        /* Buttons */
+        /* Smaller Buttons */
         .download-btn, .triage-btn {
             display: block;
-            margin: 30px 0;
-            padding: 15px 30px;
-            font-size: 20px;
+            margin: 20px 0;
+            padding: 10px 20px; /* Smaller padding for buttons */
+            font-size: 16px; /* Smaller font size */
             background-color: rgb(70, 70, 140);
             color: white;
             border: none;
@@ -88,6 +121,9 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
+            width: 200px; /* Fix width for consistency */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .download-btn:hover, .triage-btn:hover {
@@ -110,6 +146,13 @@
 </head>
 
 <body>
+    <!-- Top Panel -->
+    <div class="top-panel">
+        <span>Syphra Softworks - Your Secure Roblox Executor</span>
+        <br>
+        <a href="https://discord.gg/ApFZFGuYxh" target="_blank">Join our Discord</a>
+    </div>
+
     <!-- Snowflakes Container -->
     <div class="snowflakes">
         <!-- Snowflakes will be dynamically added here via JavaScript -->
@@ -156,20 +199,20 @@
 
     <!-- Download Section -->
     <section id="download">
-        <h1>Download Syphra Softworks</h1>
+        <h2>Download Syphra Softworks</h2>
         <p>Download the Bootstrapper for Syphra and start your journey today!</p>
         <a href="https://getsyphra.uk/Bootstrapper.exe" download="Bootstrapper.exe" class="download-btn">Download</a>
     </section>
 
     <section id="triage">
-        <h1>Triage Report</h1>
+        <h2>Triage Report</h2>
         <p>See our triage Bootstrapper report...</p>
         <a href="https://tria.ge/241228-ddyzlavkev" class="triage-btn">Open</a>
     </section>
 
     <!-- Credits Section -->
     <section id="credits">
-        <h1>Credits</h1>
+        <h2>Credits</h2>
         <p>
             Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI, and the founder of Syphra Softworks, <strong>@gigzaz</strong>! Your work and support have been invaluable.
         </p>
