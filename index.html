@@ -32,81 +32,6 @@
             font-size: 18px;
         }
 
-        /* Download Button */
-        .download-btn {
-            display: block;
-            margin: 30px auto;
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: rgb(70, 70, 140);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .download-btn:hover {
-            background-color: rgb(90, 90, 180);
-        }
-
-        .triage-btn {
-            display: block;
-            margin: 30px auto;
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: rgb(70, 70, 140);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .triage-btn:hover {
-            background-color: rgb(90, 90, 180);
-        }
-
-        /* Section Styling */
-        section {
-            margin: 40px 20px;
-            text-align: center;
-        }
-
-        /* Links */
-        a {
-            color: rgb(100, 200, 255);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Image Styling */
-        .image-container {
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        .image-container img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Warning Text */
-        .warning-text {
-            font-size: 18px;
-            color: rgb(255, 100, 100);
-            background-color: rgb(50, 50, 50);
-            padding: 20px;
-            border-radius: 5px;
-            margin: 30px auto;
-            max-width: 800px;
-        }
-
         /* Snowflakes CSS */
         .snowflakes {
             position: absolute;
@@ -114,24 +39,47 @@
             left: 0;
             pointer-events: none;
             z-index: 1000;
+            width: 100%;
+            height: 100%;
         }
 
         .snowflakes span {
             position: absolute;
             top: -10px;
             background-color: white;
-            width: 10px;
-            height: 10px;
             border-radius: 50%;
             opacity: 0.8;
-            animation: fall 10s linear infinite;
+            animation: fall linear infinite;
         }
 
         @keyframes fall {
-            to {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
                 transform: translateY(100vh);
                 opacity: 0;
             }
+        }
+
+        /* Other Section Styles */
+        .download-btn, .triage-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: rgb(70, 70, 140);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .download-btn:hover, .triage-btn:hover {
+            background-color: rgb(90, 90, 180);
         }
     </style>
 </head>
@@ -139,12 +87,7 @@
 <body>
     <!-- Snowflakes Container -->
     <div class="snowflakes">
-        <!-- Snowflakes (you can add more for a denser effect) -->
-        <span style="left: 10%; animation-duration: 12s; animation-delay: 0s;"></span>
-        <span style="left: 25%; animation-duration: 10s; animation-delay: 2s;"></span>
-        <span style="left: 40%; animation-duration: 14s; animation-delay: 4s;"></span>
-        <span style="left: 60%; animation-duration: 11s; animation-delay: 1s;"></span>
-        <span style="left: 80%; animation-duration: 13s; animation-delay: 3s;"></span>
+        <!-- Snowflakes will be dynamically added here via JavaScript -->
     </div>
 
     <!-- Introduction Section -->
@@ -211,6 +154,37 @@
         </p>
     </section>
 
+    <script>
+        // Function to generate snowflakes
+        function createSnowflakes() {
+            const snowflakesContainer = document.querySelector('.snowflakes');
+            const numSnowflakes = 100; // Number of snowflakes
+
+            for (let i = 0; i < numSnowflakes; i++) {
+                const snowflake = document.createElement('span');
+
+                // Randomize size between 5px and 15px
+                const size = Math.random() * 10 + 5;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+
+                // Randomize the position of snowflakes along the width
+                snowflake.style.left = `${Math.random() * 100}%`;
+
+                // Randomize the animation duration and delay
+                const duration = Math.random() * 5 + 5; // 5s to 10s
+                const delay = Math.random() * 5; // Random delay for staggering
+
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.animationDelay = `-${delay}s`;
+
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+
+        // Call the function to create snowflakes
+        createSnowflakes();
+    </script>
 </body>
 
 </html>
