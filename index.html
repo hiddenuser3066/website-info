@@ -116,10 +116,9 @@
 
         /* Smaller Buttons */
         .download-btn, .triage-btn {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px; /* Smaller padding for buttons */
-            font-size: 16px; /* Smaller font size */
+            display: inline-block;  /* Set buttons inline */
+            padding: 12px 24px; /* Set padding to be consistent */
+            font-size: 18px; /* Same font size for both buttons */
             background-color: rgb(70, 70, 140);
             color: white;
             border: none;
@@ -127,7 +126,8 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            width: 200px; /* Fixed width for consistency */
+            width: 200px; /* Fixed width to ensure they are the same size */
+            margin: 10px 0; /* Spacing between buttons */
         }
 
         .download-btn:hover, .triage-btn:hover {
@@ -150,10 +150,11 @@
         /* Container for Download and Triage */
         .buttons-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: space-between; /* Ensure they are side by side */
+            gap: 20px;  /* Space between the buttons */
+            flex-wrap: wrap; /* Allow buttons to stack on small screens */
             width: 100%;
+            max-width: 800px; /* Limit the width */
             margin-top: 30px;
         }
 
