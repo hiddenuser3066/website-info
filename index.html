@@ -81,6 +81,28 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Image Styling */
+        .image-container {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Warning Text */
+        .warning-text {
+            font-size: 18px;
+            color: rgb(255, 100, 100);
+            background-color: rgb(50, 50, 50);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
     </style>
 </head>
 
@@ -98,18 +120,37 @@
         </p>
     </section>
 
-<!-- Download Section -->
-<section id="download">
-    <h1>Download Syphra Softworks</h1>
-    <p>Download the Bootstrapper for Syphra and start your journey today!</p>
-    <a href="https://getsyphra.uk/Bootstrapper.exe" download="Bootstrapper.exe" class="download-btn">Download</a>
-</section>
-    <section id="triage">
-    <h1>Triage Report</h1>
-    <p>See our triage Bootstrapper report...</p>
-    <a href="https://tria.ge/241228-ddyzlavkev" class="triage-btn">Open</a>
-</section>
+    <!-- Image Section -->
+    <section id="image">
+        <div class="image-container">
+            <img src="image.png" alt="Example of a Warning.">
+        </div>
+    </section>
 
+    <!-- Warning Section -->
+    <section id="warning">
+        <div class="warning-text">
+            <h2>Important: Turn Off Antivirus</h2>
+            <p>
+                Before continuing with the installation of Syphra Softworks, please ensure that your antivirus software, especially Windows Defender, is turned off.
+                Some antivirus programs may falsely flag Syphra as a potential threat, which can interfere with the installation process. 
+                Turning off your antivirus ensures a smooth setup. Remember to turn it back on after installation!
+            </p>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download">
+        <h1>Download Syphra Softworks</h1>
+        <p>Download the Bootstrapper for Syphra and start your journey today!</p>
+        <a href="https://getsyphra.uk/Bootstrapper.exe" download="Bootstrapper.exe" class="download-btn">Download</a>
+    </section>
+
+    <section id="triage">
+        <h1>Triage Report</h1>
+        <p>See our triage Bootstrapper report...</p>
+        <a href="https://tria.ge/241228-ddyzlavkev" class="triage-btn">Open</a>
+    </section>
 
     <!-- Credits Section -->
     <section id="credits">
