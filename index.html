@@ -6,50 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syphra Software</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(20, 20, 40);
+            color: rgb(200, 200, 200);
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px auto;
+            max-width: 800px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: rgb(70, 70, 140);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: rgb(90, 90, 180);
+        }
+
+        /* Section Styling */
+        section {
+            margin: 40px 20px;
+            text-align: center;
+        }
+
+        /* Links */
+        a {
+            color: rgb(100, 200, 255);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="side-panel">
-        <button>Home</button>
-        <button>About</button>
-        <button>Contact</button>
-    </div>
+    <!-- Introduction Section -->
+    <section id="introduction">
+        <h1>Welcome to Syphra Software</h1>
+        <p>
+            Syphra Software is an advanced Roblox executor powered by ArcadiaAPI, designed to deliver high-performance execution with top-notch security.
+            With 100% UNC and 100% sUNC at level 8, Syphra ensures robust functionality while maintaining unparalleled safety and efficiency.
+        </p>
+        <p>
+            Whether you're a developer or an enthusiast, Syphra Software provides a seamless experience for all your Roblox scripting needs. Explore the
+            capabilities of ArcadiaAPI integrated into this powerful tool!
+        </p>
+    </section>
 
-    <div class="main-content">
-        <!-- Introduction Section -->
-        <section id="introduction">
-            <h1>Welcome to Syphra Software</h1>
-            <p>
-                Syphra Software is an advanced Roblox executor powered by ArcadiaAPI, designed to deliver high-performance execution with top-notch security. 
-                With 100% UNC and 100% sUNC at level 8, Syphra ensures robust functionality while maintaining unparalleled safety and efficiency.
-            </p>
-            <p>
-                Whether you're a developer or an enthusiast, Syphra Software provides a seamless experience for all your Roblox scripting needs. Explore the 
-                capabilities of ArcadiaAPI integrated into this powerful tool!
-            </p>
-        </section>
+    <!-- Download Section -->
+    <section id="download">
+        <h1>Download Syphra Software</h1>
+        <p>Download the latest version of Syphra Software and start your journey today!</p>
+        <a href="https://github.com/yourusername/yourrepository/raw/main/syphra.zip" download="syphra.zip" class="download-btn">Download</a>
+    </section>
 
-        <!-- Download Section -->
-        <section id="download" style="margin-top: 50px;">
-            <h1>Download Syphra Software</h1>
-            <p>Scroll down to download the latest version of Syphra Software and start your journey today!</p>
-            <a href="https://github.com/yourusername/yourrepository/raw/main/syphra.zip" download="syphra.zip">
-                <button class="generate-key-btn">Download</button>
-            </a>
-        </section>
-
-        <!-- Credits Section -->
-        <section id="credits" style="margin-top: 50px;">
-            <h1>Credits</h1>
-            <p>
-                Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI, the foundation of Syphra Software. Your work and support have been invaluable.
-            </p>
-            <p>
-                For support and community discussions, join us on Discord: 
-                <a href="https://discord.gg/ApFZFGuYxh" target="_blank">https://discord.gg/ApFZFGuYxh</a>
-            </p>
-        </section>
-    </div>
+    <!-- Credits Section -->
+    <section id="credits">
+        <h1>Credits</h1>
+        <p>
+            Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI, the foundation of Syphra Software. Your work and support have been invaluable.
+        </p>
+        <p>
+            For support and community discussions, join us on Discord: 
+            <a href="https://discord.gg/ApFZFGuYxh" target="_blank">https://discord.gg/ApFZFGuYxh</a>
+        </p>
+    </section>
 </body>
 
 </html>
