@@ -52,12 +52,12 @@
             color: rgb(255, 255, 255);
             text-align: center;
             margin-top: 120px;
-            font-size: 48px; /* Make this title big */
+            font-size: 48px;
         }
 
         /* Smaller Titles */
         h2 {
-            font-size: 32px; /* Smaller than h1 */
+            font-size: 32px;
             color: rgb(255, 255, 255);
             margin-top: 40px;
             text-align: center;
@@ -117,7 +117,7 @@
         /* Smaller Buttons */
         .download-btn, .triage-btn {
             display: block;
-            margin: 20px auto;
+            margin: 10px auto;
             padding: 10px 20px; /* Smaller padding for buttons */
             font-size: 16px; /* Smaller font size */
             background-color: rgb(70, 70, 140);
@@ -127,7 +127,7 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            width: 200px; /* Fix width for consistency */
+            width: 200px; /* Fixed width for consistency */
         }
 
         .download-btn:hover, .triage-btn:hover {
@@ -146,6 +146,22 @@
             z-index: 10;
             position: relative;
         }
+
+        /* Container for Download and Triage */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        /* Ensure buttons are centered on smaller screens */
+        .buttons-container a {
+            margin: 0;
+        }
+
     </style>
 </head>
 
@@ -201,17 +217,20 @@
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download">
-        <h2>Download Syphra Softworks</h2>
-        <p>Download the Bootstrapper for Syphra and start your journey today!</p>
-        <a href="https://getsyphra.uk/Bootstrapper.exe" download="Bootstrapper.exe" class="download-btn">Download</a>
-    </section>
-
-    <section id="triage">
-        <h2>Triage Report</h2>
-        <p>See our triage Bootstrapper report...</p>
-        <a href="https://tria.ge/241228-ddyzlavkev" class="triage-btn">Open</a>
+    <!-- Download and Triage Sections -->
+    <section id="download-triage">
+        <div class="buttons-container">
+            <div>
+                <h2>Download Syphra Softworks</h2>
+                <p>Download the Bootstrapper for Syphra and start your journey today!</p>
+                <a href="https://getsyphra.uk/Bootstrapper.exe" download="Bootstrapper.exe" class="download-btn">Download</a>
+            </div>
+            <div>
+                <h2>Triage Report</h2>
+                <p>See our triage Bootstrapper report...</p>
+                <a href="https://tria.ge/241228-ddyzlavkev" class="triage-btn">Open</a>
+            </div>
+        </div>
     </section>
 
     <!-- Credits Section -->
