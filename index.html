@@ -102,6 +102,64 @@
             }
         }
 
+        /* Discord Embed Preview Styling */
+        .discord-embed {
+            display: flex;
+            background-color: #2f3136; /* Discord dark background */
+            border-radius: 8px;
+            margin: 20px auto;
+            padding: 15px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            align-items: center;
+        }
+
+        .discord-embed-left {
+            background-color: #7289da; /* Discord blue */
+            width: 10px;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .discord-embed-content {
+            padding-left: 15px;
+            flex: 1;
+        }
+
+        .discord-embed-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .discord-embed-description {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+
+        .discord-embed-footer {
+            font-size: 12px;
+            color: #6a6a6a;
+            margin-top: 10px;
+        }
+
+        .discord-embed-footer a {
+            color: #7289da;
+            text-decoration: none;
+        }
+
+        .discord-embed-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .discord-embed-img {
+            max-width: 100px;
+            border-radius: 8px;
+            margin-left: 20px;
+        }
+
         /* Image Section */
         .image-container {
             margin: 20px 0;
@@ -157,61 +215,6 @@
             margin-top: 30px;
         }
 
-        /* Embed Section Styling */
-        .embed {
-            display: flex;
-            background-color: rgb(30, 30, 50);
-            border-radius: 8px;
-            margin: 20px auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 900px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .embed-left {
-            background-color: #7289da; /* Discord blue */
-            width: 10px;
-            height: 100%;
-        }
-
-        .embed-content {
-            padding-left: 20px;
-            flex: 1;
-        }
-
-        .embed-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .embed-body {
-            font-size: 16px;
-            color: #b0b0b0;
-            line-height: 1.5;
-        }
-
-        .embed-footer {
-            font-size: 14px;
-            color: #6a6a6a;
-            margin-top: 10px;
-        }
-
-        .embed-footer a {
-            color: #7289da;
-            text-decoration: none;
-        }
-
-        .embed-footer a:hover {
-            text-decoration: underline;
-        }
-
-        .embed-img {
-            max-width: 200px;
-            border-radius: 8px;
-        }
-
     </style>
 </head>
 
@@ -228,21 +231,20 @@
         <!-- Snowflakes will be dynamically added here via JavaScript -->
     </div>
 
-    <!-- Embed Section -->
-    <section id="embed">
-        <div class="embed">
-            <div class="embed-left"></div>
-            <div class="embed-content">
-                <div class="embed-title">Syphra Softworks</div>
-                <div class="embed-body">
-                    Syphra Softworks provides advanced scripting capabilities for Roblox. With our integration of ArcadiaAPI, you can execute scripts seamlessly with top-tier security features.
-                    <br><br>
-                    Make sure to explore the full potential of the software for a more secure and efficient scripting experience.
+    <!-- Discord Embed Preview Section -->
+    <section id="discord-embed-preview">
+        <div class="discord-embed">
+            <div class="discord-embed-left"></div>
+            <div class="discord-embed-content">
+                <div class="discord-embed-title">Syphra Softworks</div>
+                <div class="discord-embed-description">
+                    Syphra Softworks is an advanced Roblox executor powered by ArcadiaAPI, offering top-tier security and high-performance script execution.
                 </div>
-                <div class="embed-footer">
+                <div class="discord-embed-footer">
                     <span>Posted by <a href="#">Syphra Team</a> | 1 hour ago</span>
                 </div>
             </div>
+            <img src="https://via.placeholder.com/100" alt="Syphra Softworks Logo" class="discord-embed-img">
         </div>
     </section>
 
