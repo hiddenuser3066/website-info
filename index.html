@@ -157,11 +157,55 @@
             margin-top: 30px;
         }
 
-        /* Ensure buttons are centered on smaller screens */
-        .buttons-container a {
-            margin: 0;
+        /* Embed Styling */
+        .embed {
+            display: flex;
+            background-color: rgb(30, 30, 50);
+            border-radius: 8px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        .embed-left {
+            background-color: #7289da; /* Discord blue */
+            width: 10px;
+            height: 100%;
+        }
+
+        .embed-content {
+            padding-left: 20px;
+            flex: 1;
+        }
+
+        .embed-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .embed-body {
+            font-size: 16px;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+
+        .embed-footer {
+            font-size: 14px;
+            color: #6a6a6a;
+            margin-top: 10px;
+        }
+
+        .embed-footer a {
+            color: #7289da;
+            text-decoration: none;
+        }
+
+        .embed-footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -210,10 +254,21 @@
         </div>
     </section>
 
-    <!-- Image Section -->
-    <section id="image">
-        <div class="image-container">
-            <img src="image.png" alt="Example of a Warning.">
+    <!-- Embed Section -->
+    <section id="embed">
+        <div class="embed">
+            <div class="embed-left"></div>
+            <div class="embed-content">
+                <div class="embed-title">Syphra Softworks</div>
+                <div class="embed-body">
+                    Syphra Softworks provides advanced scripting capabilities for Roblox. With our integration of ArcadiaAPI, you can execute scripts seamlessly with top-tier security features.
+                    <br><br>
+                    Make sure to explore the full potential of the software for a more secure and efficient scripting experience.
+                </div>
+                <div class="embed-footer">
+                    <span>Posted by <a href="#">Syphra Team</a> | 1 hour ago</span>
+                </div>
+            </div>
         </div>
     </section>
 
