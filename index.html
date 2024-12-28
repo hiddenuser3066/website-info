@@ -17,6 +17,10 @@
             position: relative;
             overflow-y: scroll;
             padding-top: 60px; /* Add space for top panel */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         /* Top Panel */
@@ -25,7 +29,7 @@
             background-color: rgb(40, 40, 60);
             color: white;
             padding: 10px;
-            text-align: left;
+            text-align: center;
             position: fixed;
             top: 0;
             left: 0;
@@ -46,8 +50,8 @@
         /* Main Title */
         h1 {
             color: rgb(255, 255, 255);
-            text-align: left;
-            margin-top: 100px;
+            text-align: center;
+            margin-top: 120px;
             font-size: 48px; /* Make this title big */
         }
 
@@ -56,13 +60,14 @@
             font-size: 32px; /* Smaller than h1 */
             color: rgb(255, 255, 255);
             margin-top: 40px;
+            text-align: center;
         }
 
         /* Paragraph Styles */
         p {
             margin: 10px 0;
             max-width: 800px;
-            text-align: left;
+            text-align: center;
             font-size: 18px;
         }
 
@@ -100,6 +105,7 @@
         /* Image Section */
         .image-container {
             margin: 20px 0;
+            text-align: center;
         }
 
         .image-container img {
@@ -111,7 +117,7 @@
         /* Smaller Buttons */
         .download-btn, .triage-btn {
             display: block;
-            margin: 20px 0;
+            margin: 20px auto;
             padding: 10px 20px; /* Smaller padding for buttons */
             font-size: 16px; /* Smaller font size */
             background-color: rgb(70, 70, 140);
@@ -122,8 +128,6 @@
             text-align: center;
             text-decoration: none;
             width: 200px; /* Fix width for consistency */
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .download-btn:hover, .triage-btn:hover {
@@ -137,7 +141,7 @@
             background-color: rgb(50, 50, 50);
             padding: 20px;
             border-radius: 5px;
-            margin: 30px 0;
+            margin: 30px auto;
             max-width: 800px;
             z-index: 10;
             position: relative;
