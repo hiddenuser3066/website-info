@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syphra Softworks</title>
+    <meta name="description" content="Syphra Softworks offers advanced execution powered by ArcadiaAPI, delivering security and performance.">
+    <meta property="og:title" content="Syphra Softworks">
+    <meta property="og:description" content="Syphra Softworks is an executor powered by ArcadiaAPI, offering 100% UNC and sUNC.">
+    <meta property="og:image" content="https://github.com/hiddenuser3066/website-info/blob/494823cf2a086f591533155c1ce0709c419e1891/IMG_2274.png">
+    <meta property="og:url" content="https://getsyphra.uk">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Syphra Softworks">
+    <meta property="og:locale" content="en_US">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --glow-color: rgba(255, 255, 255, 0.9);
+        --background-dark: #000;
+        --text-color: #ffffff;
+      }
+
+      body {
+        font-family: 'Montserrat', Arial, sans-serif;
+        background: linear-gradient(000, #000000 0%, #000 100%);
+        color: var(--text-color);
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      header {
+        width: 100%;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateY(-100%);
+        animation: slideDown 0.8s ease-out forwards;
+      }
+
+      header span {
+        font-size: 1.5em;
+        font-weight: bold;
+        background: linear-gradient(45deg, #fff, #7a7a7a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: shimmer 3s infinite linear;
+      }
+
+      main {
+        padding-top: 120px;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        gap: 40px;
+      }
+
+      .text-content,
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+        max-width: 600px;
+        flex: 1;
+      }
+
+      .text-content {
+        padding-right: 40px;
+      }
+
+      .card {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .card img {
+        width: 140%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .discord-btn {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .main-btn {
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        margin-top: -10px;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-bottom: 30px;
+      }
+
+      .main-btn:hover {
+        box-shadow: 0 0 10px rgba(255, 255, 255, .8)
+      }
+
+      .section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: auto;
+        width: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 100px;
+      }
+
+      .section:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .section h1,
+      .section h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #f1f1f1;
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      .updates-section p {
+        font-size: 1.1em;
+        line-height: 1.5em;
+      }
+
+      .intro-section p {
+        margin-top: 10px;
+        font-size: 1.2em;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .download-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 330px;
+        margin-top: 10px;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span>Syphra Softworks</span>
+      <a href="https://discord.gg/ApFZFGuYxh" target="_blank" class="discord-btn">Join our Discord</a>
+    </header>
+    <main>
+      <div class="text-content">
+        <section class="section intro-section">
+          <h1>Welcome to Syphra Softworks</h1>
+          <p>Syphra Softworks is an advanced Roblox executor powered by ArcadiaAPI, designed to deliver high-performance execution with top-notch security.</p>
+        </section>
+        <section class="section updates-section">
+          <h2>Updates</h2>
+          <p>- New API with 100% UNC and 100% sUNC <br> - New UI (made by @gigzaz) <br> - Executor is now obfuscated <br> - Credits to zadam42 for making the API </p>
+        </section>
+        <section class="section download-section">
+          <h2>Download</h2>
+          <div class="download-buttons">
+            <a href="https://getsyphra.uk/bootstrapper.exe" download="bootstrapper.exe" class="main-btn">Bootstrapper</a>
+            <a href="https://getsyphra.uk/syphra.zip" download="syphra.zip" class="main-btn">Direct Install</a>
+          </div>
+          <a href="https://tria.ge/241228-ddyzlavkev" class="main-btn triage-btn">Triage Report</a>
+        </section>
+        <section class="section credits-section">
+          <h2>Credits</h2>
+          <p>Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI and the founder of Syphra Softworks, and thanks too <strong>@gigzaz</strong> and <strong>@patheticpthetic</strong> for the site redesign! </p>
+        </section>
+      </div>
+      <div class="image-container">
+        <div class="card">
+          <img src="https://iili.io/2kt7rg9.png" alt="Syphra Logo">
+        </div>
+        <div class="card">
+          <img src="https://iili.io/2kt72PS.png" alt="Bootstrap Preview">
+        </div>
+      </div>
+    </main>
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      document.querySelectorAll('.section').forEach(el => observer.observe(el));
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => {
+        let animationFrameId;
+        card.addEventListener('mousemove', function(e) {
+          if (animationFrameId) cancelAnimationFrame(animationFrameId);
+          animationFrameId = requestAnimationFrame(() => {
+            const {
+              offsetWidth: width,
+              offsetHeight: height
+            } = card;
+            const rect = card.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+            const x = (offsetX / width) * 2 - 1;
+            const y = (offsetY / height) * 2 - 1;
+            card.style.transform = `perspective(1000px) scale(1.03) rotateX(${y * -10}deg) rotateY(${x * 10}deg)`;
+          });
+        });
+        card.addEventListener('mouseleave', function() {
+          if (animationFrameId) cancelAnimationFrame(animationFrameId);
+          card.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
+        });
+      });
+    </script>
+  </body>
+</html>
