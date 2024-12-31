@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syphra Softworks</title>
@@ -12,343 +12,447 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Syphra Softworks">
     <meta property="og:locale" content="en_US">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --glow-color: rgba(255, 255, 255, 0.9);
-        --background-dark: #000;
-        --text-color: #ffffff;
-      }
-
-      body {
-        font-family: 'Montserrat', Arial, sans-serif;
-        background: linear-gradient(000, #000000 0%, #000 100%);
-        color: var(--text-color);
-        line-height: 1.6;
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-      }
-
-      header {
-        width: 100%;
-        padding: 20px;
-        position: fixed;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transform: translateY(-100%);
-        animation: slideDown 0.8s ease-out forwards;
-      }
-
-      header span {
-        font-size: 1.5em;
-        font-weight: bold;
-        background: linear-gradient(45deg, #fff, #7a7a7a);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: shimmer 3s infinite linear;
-      }
-
-      main {
-        padding-top: 120px;
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        width: 100%;
-        gap: 40px;
-      }
-
-      .text-content,
-      .image-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        height: auto;
-        max-width: 600px;
-        flex: 1;
-      }
-
-      .text-content {
-        padding-right: 40px;
-      }
-
-      .card {
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        transition: all 0.3s ease;
-      }
-
-      .card img {
-        width: 140%;
-        height: auto;
-        border-radius: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-      }
-
-      .discord-btn {
-        padding: 15px 30px;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 1em;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        margin-top: 10px;
-      }
-
-      .main-btn {
-        padding: 15px 30px;
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer;
-        font-size: 1em;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.5s ease;
-        margin-top: -10px;
-        margin-right: 20px;
-        margin-left: 20px;
-        margin-bottom: 30px;
-      }
-
-      .main-btn:hover {
-        box-shadow: 0 0 10px rgba(255, 255, 255, .8)
-      }
-
-      .section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        height: auto;
-        width: 700px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 100px;
-      }
-
-      .section:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .section h1,
-      .section h2 {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        color: #f1f1f1;
-        font-size: 2em;
-        font-weight: bold;
-      }
-
-      .updates-section p {
-        font-size: 1.1em;
-        line-height: 1.5em;
-      }
-
-      .intro-section p {
-        margin-top: 10px;
-        font-size: 1.2em;
-      }
-
-      .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .download-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 330px;
-        margin-top: 10px;
-      }
-
-      @keyframes slideDown {
-        from {
-          transform: translateY(-100%);
-          opacity: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        to {
-          transform: translateY(0);
-          opacity: 1;
+        :root {
+            --glow-color: rgba(255, 255, 255, 0.9);
+            --background-dark: #000;
+            --text-color: #ffffff;
         }
-      }
 
-      /* Snowflake styles */
-      .snowflake {
-        position: absolute;
-        top: -10px;
-        background-color: white;
-        border-radius: 50%;
-        opacity: 0.7;
-        pointer-events: none;
-        animation: fall linear infinite;
-      }
-
-      @keyframes fall {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 0.7;
-        }
-        50% {
-          opacity: 0.9;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @media only screen and (max-width: 768px) {
         body {
-          zoom: 50%;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #000000 0%, #1a1a1a 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+ #snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+  }
+
+  .snowflake {
+    position: fixed;
+    background-color: #CCC;
+    user-select: none;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+  }
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-5vh) translateX(-20px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(105vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        header {
+            width: 100%;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #7a7a7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         main {
-          flex-direction: column;
+            padding: 6rem 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .image-container {
-          order: 2;
+        .content-wrapper {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .text-content {
+                flex: 1;
+            }
+            
+            .image-container {
+                flex: 1;
+            }
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .section:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+      
+        .discord {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .discord-btn {
+            background: #7289da;
+        }
+
+        .discord-btn:hover {
+            background: #5b73c7;
         }
 
         .card {
-          width: 100%;
-          margin: 0 auto 20px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            perspective: 1000px;
         }
 
         .card img {
-          width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .text-content {
-          order: 1;
+        h1, h2 {
+            margin-bottom: 1rem;
+            color: #f1f1f1;
         }
-      }
+
+        .download-section {
+            text-align: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
     </style>
-  </head>
-  <body>
+
+</head>
+<body>
+<div id="snowflakeContainer">
+  <span class="snowflake"></span>
+</div>
     <header>
-      <span>Syphra Softworks</span>
-      <a href="https://discord.gg/ApFZFGuYxh" target="_blank" class="discord-btn">Join our Discord</a>
+        <span>Syphra Softworks</span>
+        <a href="https://discord.gg/ApFZFGuYxh" target="_blank" class="discord">Join Discord</a>
     </header>
+    
     <main>
-      <div class="text-content">
-        <section class="section intro-section">
-          <h1>Welcome to Syphra Softworks</h1>
-          <p>Syphra Softworks is an advanced Roblox executor powered by ArcadiaAPI, designed to deliver high-performance execution with top-notch security.</p>
-        </section>
-        <section class="section updates-section">
-          <h2>Updates</h2>
-          <p>Release 1.0.5<br>Whats new?<br>- Updated ArcadiaAPI to 2.0<br>- Reinstall Bloxstrap button to prevent from being logged by roblox.<br>- Clear Temporary files button fixed.<br>- Minor UI bugs etc</p>
-        </section>
-        <section class="section download-section">
-          <h2>Download Syphra</h2>
-          <div class="download-buttons">
-            <a href="https://getsyphra.uk/bootstrapper.exe" download="bootstrapper.exe" class="main-btn">Bootstrapper</a>
-            <a href="https://getsyphra.uk/syphra.zip" download="syphra.zip" class="main-btn">Direct Install</a>
-          </div>
-          <a href="https://tria.ge/241228-ddyzlavkev" class="main-btn triage-btn">Triage Report</a>
-        </section>
-        <section class="section credits-section">
-          <h2>Credits</h2>
-          <p>Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI and the founder of Syphra Softworks, and thanks too <strong>@gigzaz</strong> and <strong>@patheticpthetic</strong> for the site redesign! </p>
-        </section>
-      </div>
-      <div class="image-container">
-        <div class="card">
-          <img src="https://iili.io/2kt7rg9.png" alt="Syphra Logo">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <section class="section intro-section">
+                    <h1>Welcome to Syphra Softworks</h1>
+                    <p>Syphra Softworks is an advanced Roblox executor powered by ArcadiaAPI, designed to deliver high-performance execution with top-notch security.</p>
+                </section>
+
+                <section class="section updates-section">
+                    <h2>Updates</h2>
+                    <p>Release 1.0.5<br>
+                    What's new?<br>
+                    - Updated ArcadiaAPI to 2.0<br>
+                    - Reinstall Bloxstrap button to prevent being logged by Roblox<br>
+                    - Clear Temporary files button fixed<br>
+                    - Minor UI improvements</p>
+                </section>
+
+                <section class="section download-section">
+                    <h2>Download Syphra</h2>
+                    <div class="download-buttons">
+                        <a href="https://getsyphra.uk/bootstrapper.exe" download="bootstrapper.exe" class="btn">Bootstrapper</a>
+                        <a href="https://getsyphra.uk/syphra.zip" download="syphra.zip" class="btn">Direct Install</a>
+                    </div>
+                    <a href="https://tria.ge/241228-ddyzlavkev" class="btn">Triage Report</a>
+                </section>
+
+                <section class="section credits-section">
+                    <h2>Credits</h2>
+                    <p>Special thanks to <strong>zadam42</strong> for creating ArcadiaAPI and founding Syphra Softworks, and thanks to <strong>@gigzaz</strong> and <strong>@patheticpthetic</strong> for the site redesign!</p>
+                </section>
+            </div>
+
+            <div class="image-container">
+                <div class="card">
+                    <img src="https://iili.io/2kt7rg9.png" alt="Syphra Logo">
+                </div>
+                <div class="card">
+                    <img src="https://iili.io/2kt72PS.png" alt="Bootstrap Preview">
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <img src="https://iili.io/2kt72PS.png" alt="Bootstrap Preview">
-        </div>
-      </div>
     </main>
+
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.zoom = "67%";
-      });
+  // Array to store our Snowflake objects
+  var snowflakes = [];
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-      document.querySelectorAll('.section').forEach(el => observer.observe(el));
+  // Global variables to store our browser's window size
+  var browserWidth;
+  var browserHeight;
 
-      const cards = document.querySelectorAll('.card');
-      cards.forEach((card) => {
-        let animationFrameId;
-        card.addEventListener('mousemove', function(e) {
-          if (animationFrameId) cancelAnimationFrame(animationFrameId);
-          animationFrameId = requestAnimationFrame(() => {
-            const {
-              offsetWidth: width,
-              offsetHeight: height
-            } = card;
-            const rect = card.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-            const x = (offsetX / width) * 2 - 1;
-            const y = (offsetY / height) * 2 - 1;
-            card.style.transform = `perspective(1000px) scale(1.03) rotateX(${y * -10}deg) rotateY(${x * 10}deg)`;
-          });
-        });
-        card.addEventListener('mouseleave', function() {
-          if (animationFrameId) cancelAnimationFrame(animationFrameId);
-          card.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
-        });
-      });
+  // Specify the number of snowflakes you want visible
+  var numberOfSnowflakes = 50;
 
+  // Flag to reset the position of the snowflakes
+  var resetPosition = false;
+
+  // Handle accessibility
+  var enableAnimations = false;
+  var reduceMotionQuery = matchMedia("(prefers-reduced-motion)");
+
+  // Handle animation accessibility preferences 
+  function setAccessibilityState() {
+    if (reduceMotionQuery.matches) {
+      enableAnimations = false;
+    } else { 
+      enableAnimations = true;
+    }
+  }
+  setAccessibilityState();
+
+  reduceMotionQuery.addListener(setAccessibilityState);
+
+  //
+  // It all starts here...
+  //
+  function setup() {
+    if (enableAnimations) {
+      window.addEventListener("DOMContentLoaded", generateSnowflakes, false);
+      window.addEventListener("resize", setResetFlag, false);
+    }
+  }
+  setup();
+
+  //
+  // Constructor for our Snowflake object
+  //
+  function Snowflake(element, speed, xPos, yPos) {
+    // set initial snowflake properties
+    this.element = element;
+    this.speed = speed;
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.scale = 1;
+
+    // declare variables used for snowflake's motion
+    this.counter = 0;
+    this.sign = Math.random() < 0.5 ? 1 : -1;
+
+    // setting an initial opacity and size for our snowflake
+    this.element.style.opacity = (.1 + Math.random()) / 3;
+  }
+
+  //
+  // The function responsible for actually moving our snowflake
+  //
+  Snowflake.prototype.update = function () {
+    // using some trigonometry to determine our x and y position
+    this.counter += this.speed / 5000;
+    this.xPos += this.sign * this.speed * Math.cos(this.counter) / 40;
+    this.yPos += Math.sin(this.counter) / 40 + this.speed / 30;
+    this.scale = .5 + Math.abs(10 * Math.cos(this.counter) / 20);
+
+    // setting our snowflake's position
+    setTransform(Math.round(this.xPos), Math.round(this.yPos), this.scale, this.element);
+
+    // if snowflake goes below the browser window, move it back to the top
+    if (this.yPos > browserHeight) {
+      this.yPos = -50;
+    }
+  }
+
+  //
+  // A performant way to set your snowflake's position and size
+  //
+  function setTransform(xPos, yPos, scale, el) {
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0) scale(${scale}, ${scale})`;
+  }
+
+  //
+  // The function responsible for creating the snowflake
+  //
+  function generateSnowflakes() {
+
+    // get our snowflake element from the DOM and store it
+    var originalSnowflake = document.querySelector(".snowflake");
+
+    // access our snowflake element's parent container
+    var snowflakeContainer = originalSnowflake.parentNode;
+    snowflakeContainer.style.display = "block";
+
+    // get our browser's size
+    browserWidth = document.documentElement.clientWidth;
+    browserHeight = document.documentElement.clientHeight;
+
+    // create each individual snowflake
+    for (var i = 0; i < numberOfSnowflakes; i++) {
+
+      // clone our original snowflake and add it to snowflakeContainer
+      var snowflakeClone = originalSnowflake.cloneNode(true);
+      snowflakeContainer.appendChild(snowflakeClone);
+
+      // set our snowflake's initial position and related properties
+      var initialXPos = getPosition(50, browserWidth);
+      var initialYPos = getPosition(50, browserHeight);
+      var speed = 5 + Math.random() * 40;
+
+      // create our Snowflake object
+      var snowflakeObject = new Snowflake(snowflakeClone,
+        speed,
+        initialXPos,
+        initialYPos);
+      snowflakes.push(snowflakeObject);
+    }
+
+    // remove the original snowflake because we no longer need it visible
+    snowflakeContainer.removeChild(originalSnowflake);
+
+    moveSnowflakes();
+  }
+
+  //
+  // Responsible for moving each snowflake by calling its update function
+  //
+  function moveSnowflakes() {
+
+    if (enableAnimations) {
+      for (var i = 0; i < snowflakes.length; i++) {
+        var snowflake = snowflakes[i];
+        snowflake.update();
+      }      
+    }
+
+    // Reset the position of all the snowflakes to a new value
+    if (resetPosition) {
+      browserWidth = document.documentElement.clientWidth;
+      browserHeight = document.documentElement.clientHeight;
+
+      for (var i = 0; i < snowflakes.length; i++) {
+        var snowflake = snowflakes[i];
+
+        snowflake.xPos = getPosition(50, browserWidth);
+        snowflake.yPos = getPosition(50, browserHeight);
+      }
+
+      resetPosition = false;
+    }
+
+    requestAnimationFrame(moveSnowflakes);
+  }
+
+  //
+  // This function returns a number between (maximum - offset) and (maximum + offset)
+  //
+  function getPosition(offset, size) {
+    return Math.round(-1 * offset + Math.random() * (size + 2 * offset));
+  }
+
+  //
+  // Trigger a reset of all the snowflakes' positions
+  //
+  function setResetFlag(e) {
+    resetPosition = true;
+  }
+
+        // Card hover effect
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
