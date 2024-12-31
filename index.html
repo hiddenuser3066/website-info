@@ -38,6 +38,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        position: relative;
       }
 
       header {
@@ -217,6 +218,31 @@
           opacity: 1;
         }
       }
+
+      /* Snowflake styles */
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.7;
+        pointer-events: none;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -232,13 +258,13 @@
         </section>
         <section class="section updates-section">
           <h2>Updates</h2>
-          <p>Release 1.0.5<br>Whats new?<br>- Updated ArcadiaAPI to 2.0<br>- Reinstall Bloxstrap button to prevent from being logged by roblox.<br>- Clear Temporary files button fixed.<br>- Minor UI bugs etc</pr>
+          <p>Release 1.0.5<br>Whats new?<br>- Updated ArcadiaAPI to 2.0<br>- Reinstall Bloxstrap button to prevent from being logged by roblox.<br>- Clear Temporary files button fixed.<br>- Minor UI bugs etc</p>
         </section>
         <section class="section download-section">
           <h2>Download Syphra</h2>
           <div class="download-buttons">
             <a href="https://getsyphra.uk/bootstrapper.exe" download="bootstrapper.exe" class="main-btn">Bootstrapper</a>
-                        <a href="https://getsyphra.uk/syphra.zip" download="syphra.zip" class="main-btn">Direct Install</a>
+            <a href="https://getsyphra.uk/syphra.zip" download="syphra.zip" class="main-btn">Direct Install</a>
           </div>
           <a href="https://tria.ge/241228-ddyzlavkev" class="main-btn triage-btn">Triage Report</a>
         </section>
@@ -267,6 +293,7 @@
         threshold: 0.1
       });
       document.querySelectorAll('.section').forEach(el => observer.observe(el));
+
       const cards = document.querySelectorAll('.card');
       cards.forEach((card) => {
         let animationFrameId;
@@ -290,6 +317,24 @@
           card.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
         });
       });
+
+      // Snowflake generation
+      const createSnowflake = () => {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        const size = Math.random() * 10 + 5;
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, 10000);
+      };
+
+      setInterval(createSnowflake, 100);
     </script>
   </body>
 </html>
