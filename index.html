@@ -349,26 +349,6 @@
         });
       });
 
-      // Snowflake generation
-      const createSnowflake = () => {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        const size = Math.random() * 10 + 5;
-        snowflake.style.width = `${size}px`;
-        snowflake.style.height = `${size}px`;
-        snowflake.style.left = `${Math.random() * 90
-        snowflake.style.width = `${size}px`;
-        snowflake.style.height = `${size}px`;
-        snowflake.style.left = `${Math.random() * 100}vw`;
-        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
-        document.body.appendChild(snowflake);
-
-        setTimeout(() => {
-          snowflake.remove();
-        }, 10000);
-      };
-
-      setInterval(createSnowflake, 100);
     </script>
   </body>
 </html>
