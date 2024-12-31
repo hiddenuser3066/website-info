@@ -243,6 +243,33 @@
           opacity: 0;
         }
       }
+
+      @media only screen and (max-width: 768px) {
+        body {
+          zoom: 50%;
+        }
+
+        main {
+          flex-direction: column;
+        }
+
+        .image-container {
+          order: 2;
+        }
+
+        .card {
+          width: 100%;
+          margin: 0 auto 20px;
+        }
+
+        .card img {
+          width: 100%;
+        }
+
+        .text-content {
+          order: 1;
+        }
+      }
     </style>
   </head>
   <body>
