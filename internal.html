@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Internal Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Client</title>
 </head>
 <body>
-    <h3>Enter Key and Interact with API</h3>
-    <input type="text" id="key" placeholder="Enter Key">
-    <button onclick="getPort()">Get Port</button>
-    <br><br>
-    <button onclick="inject()">Inject</button>
-    <br><br>
-    <textarea id="scriptText" placeholder="Enter script to execute"></textarea>
-    <br>
-    <button onclick="executeScript()">Execute Script</button>
+  <h1>WebSocket Interaction</h1>
+  <button onclick="inject()">Inject</button>
+  <br><br>
+  <textarea id="scriptInput" placeholder="Enter script"></textarea>
+  <br><br>
+  <button onclick="execute()">Execute</button>
 
-    <script>
-        async function getPort() {
-            const key = document.getElementById("key").value;
-            const response = await fetch(`https://getsyphra.uk/login?key=${key}`);
-            const port = await response.text();
-            alert(`Assigned Port: ${port}`);
-        }
+  <script>
+    const socket = new WebSocket('ws://getsyphra.uk:8080/internal');
 
-        async function inject() {
-            const response = await fetch(`https://getsyphra.uk/inject`);
-            const result = await response.text();
-            alert(result);
-        }
+    socket.onopen = () => {
+      console.log("Connected to WebSocket server");
+    };
 
-        async function executeScript() {
-            const script = document.getElementById("scriptText").value;
-            const response = await fetch(`https://getsyphra.uk/execute?script=${encodeURIComponent(script)}`);
-            const result = await response.text();
-            alert(result);
-        }
-    </script>
+    socket.onmessage = (event) => {
+      alert(`Server: ${event.data}`);
+    };
+
+    function inject() {
+      socket.send("inject");
+    }
+
+    function execute() {
+      const script = document.getElementById("scriptInput").value;
+      socket.send(`execute ${script}`);
+    }
+  </script>
 </body>
 </html>
