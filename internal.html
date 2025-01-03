@@ -1,36 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebSocket Client</title>
-</head>
+<html>
+<head><title>WebSocket Client</title></head>
 <body>
-  <h1>WebSocket Interaction</h1>
   <button onclick="inject()">Inject</button>
-  <br><br>
-  <textarea id="scriptInput" placeholder="Enter script"></textarea>
-  <br><br>
+  <textarea id="script"></textarea>
   <button onclick="execute()">Execute</button>
 
   <script>
     const socket = new WebSocket('ws://getsyphra.uk:8080/internal');
-
-    socket.onopen = () => {
-      console.log("Connected to WebSocket server");
-    };
-
-    socket.onmessage = (event) => {
-      alert(`Server: ${event.data}`);
-    };
+    socket.onmessage = (event) => alert(event.data);
 
     function inject() {
       socket.send("inject");
     }
 
     function execute() {
-      const script = document.getElementById("scriptInput").value;
-      socket.send(`execute ${script}`);
+      const script = document.getElementById("script").value;
+      socket.send("execute " + script);
     }
   </script>
 </body>
