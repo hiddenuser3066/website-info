@@ -3,6 +3,10 @@
     {
       "source": "/reports",
       "destination": "/reports.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.html"
     }
   ]
 }
