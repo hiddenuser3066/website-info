@@ -244,10 +244,9 @@
   <span class="snowflake"></span>
 </div>
     <header>
-              <a href="https://getsyphra.uk" target="_blank" class="home">Home</a>
-<a href="#" class="report" id="reportButton">Reports</a>
-
-      <a href="https://getsyphra.uk" target="_blank" class="projects">Projects</a>
+        <a href="https://getsyphra.uk" target="_blank" class="home">Home</a>
+        <a href="#" class="report" id="reportButton">Reports</a>
+        <a href="https://getsyphra.uk" target="_blank" class="projects">Projects</a>
         <span>Syphra Softworks</span>
         <a href="https://discord.gg/ApFZFGuYxh" target="_blank" class="discord">Join Discord</a>
     </header>
@@ -489,5 +488,23 @@
             });
         });
     </script>
+    <script>
+document.getElementById('reportButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+
+    // Change the URL in the browser without reloading the page
+    history.pushState({ page: "reports" }, "Reports", "/reports");
+
+    // Dynamically load the reports content into the main section
+    fetch('/reports') // Make sure your server serves this URL
+        .then(response => response.text())
+        .then(html => {
+            // Replace the content inside the <main> tag with the fetched content
+            document.querySelector('main').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading reports content:', error));
+});
+</script>
+
 </body>
 </html>
