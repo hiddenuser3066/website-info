@@ -237,7 +237,6 @@
             margin: 1rem 0;
         }
     </style>
-
 </head>
 <body>
 <div id="snowflakeContainer">
@@ -294,6 +293,25 @@
             </div>
         </div>
     </main>
+
+    <script>
+        document.getElementById('reportButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Change the URL in the browser without reloading the page
+            history.pushState({ page: "reports" }, "Reports", "/reports");
+
+            // Dynamically load the reports content into the main section
+            fetch('/reports') // Make sure your server serves this URL
+                .then(response => response.text())
+                .then(html => {
+                    // Replace the content inside the <main> tag with the fetched content
+                    document.querySelector('main').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading reports content:', error));
+        });
+    </script>
+
 
     <script>
   // Array to store our Snowflake objects
@@ -488,23 +506,5 @@
             });
         });
     </script>
-    <script>
-document.getElementById('reportButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default link behavior
-
-    // Change the URL in the browser without reloading the page
-    history.pushState({ page: "reports" }, "Reports", "/reports");
-
-    // Dynamically load the reports content into the main section
-    fetch('/reports') // Make sure your server serves this URL
-        .then(response => response.text())
-        .then(html => {
-            // Replace the content inside the <main> tag with the fetched content
-            document.querySelector('main').innerHTML = html;
-        })
-        .catch(error => console.error('Error loading reports content:', error));
-});
-</script>
-
 </body>
 </html>
