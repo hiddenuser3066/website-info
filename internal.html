@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Interface</title>
+</head>
+<body>
+    <h1>API Controls</h1>
+
+    <!-- Login Form -->
+    <form id="loginForm">
+        <input type="text" id="keyInput" placeholder="Enter Key" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="controls" style="display:none;">
+        <button id="injectButton">Inject API.Attach()</button>
+        <textarea id="scriptTextbox" placeholder="Enter your script here..."></textarea><br>
+        <button id="executeButton">Execute Script</button>
+    </div>
+
+    <script>
+        // Handle the login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const key = document.getElementById('keyInput').value;
+
+            fetch('https://raw.githubusercontent.com/hiddenuser3066/keysystems/refs/heads/main/keysys')
+                .then(response => response.text())
+                .then(keys => {
+                    if (keys.includes(key)) {
+                        alert('Key verified!');
+                        // Show controls once key is verified
+                        document.getElementById('controls').style.display = 'block';
+                    } else {
+                        alert('Invalid key!');
+                    }
+                });
+        });
+
+        // Handle Inject Button click
+        document.getElementById('injectButton').addEventListener('click', function() {
+            fetch('http://localhost:5000/inject')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Handle Execute Button click
+        document.getElementById('executeButton').addEventListener('click', function() {
+            const script = document.getElementById('scriptTextbox').value;
+            fetch(`http://localhost:5000/execute?script=${encodeURIComponent(script)}`)
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
