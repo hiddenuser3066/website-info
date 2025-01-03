@@ -31,7 +31,7 @@
                 .then(keys => {
                     if (keys.includes(key)) {
                         alert('Key verified!');
-                        // Show controls once key is verified
+                        // Proceed with the rest of your logic
                         document.getElementById('controls').style.display = 'block';
                     } else {
                         alert('Invalid key!');
@@ -41,7 +41,7 @@
 
         // Handle Inject Button click
         document.getElementById('injectButton').addEventListener('click', function() {
-            fetch('http://localhost:5000/inject')
+            fetch('https://getsyphra.uk/inject')
                 .then(response => response.text())
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
@@ -50,7 +50,7 @@
         // Handle Execute Button click
         document.getElementById('executeButton').addEventListener('click', function() {
             const script = document.getElementById('scriptTextbox').value;
-            fetch(`http://localhost:5000/execute?script=${encodeURIComponent(script)}`)
+            fetch(`https://getsyphra.uk/execute?script=${encodeURIComponent(script)}`)
                 .then(response => response.text())
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
