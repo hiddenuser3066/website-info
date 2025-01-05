@@ -1,0 +1,22 @@
+Package: com.anondev.LocalIAPStore
+Name: LocalIAPStore
+Version: 1.4-1
+Architecture: iphoneos-arm
+Description: A tweak for bypassing in-app purchases on supported apps.
+Maintainer: Your Name <your.email@example.com>
+Section: Tweaks
+Filename: debs/anondev.LocalIAPStore_1.4-1_iphoneos-arm.deb
+Size: 71744
+MD5sum: 83243e1147af709fcca768ef28d630c1
+Depiction: http://yourrepo.com/depictions/?p=com.anondev.LocalIAPStore   # Optional field if you have a custom depiction page
+
+Package: com.rovio.angrybirds.space
+Version: 1.3.0
+Architecture: iphoneos-arm
+Description: Angry Birds Space - The popular Angry Birds game with space-themed levels.
+Maintainer: Your Name <your.email@example.com>
+Depends: iOS 4.0 or later
+Size: 17073817    # 16.3 MB in bytes
+Filename: ipa/Angry_Birds_v1.3.0_Space_os40.ipa
+MD5sum: 053c437762788a049db99aaa06113907  # MD5 checksum you provided
+Depiction: http://yourrepo.com/depictions/?p=com.rovio.angrybirds.space   # Optional field if you have a custom depiction page
