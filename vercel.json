@@ -8,5 +8,9 @@
       "source": "/projects",
       "destination": "/projects.html"
     }
+    {
+      "source": "/verified",
+      "destination": "/verified.html"
+    }
   ]
 }
